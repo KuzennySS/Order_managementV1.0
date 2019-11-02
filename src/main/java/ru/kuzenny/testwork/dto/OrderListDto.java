@@ -14,6 +14,16 @@ public class OrderListDto {
 
     private BigDecimal cost;
 
+    private Integer orderId;
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
     public Integer getGoodsId() {
         return goodsId;
     }
@@ -57,12 +67,13 @@ public class OrderListDto {
     public OrderListDto() {
     }
 
-    public OrderListDto(Integer goodsId, String nameGoods, BigDecimal priceOrder, Integer number, BigDecimal cost) {
+    public OrderListDto(Integer goodsId, String nameGoods, BigDecimal priceOrder, Integer number, BigDecimal cost, Integer orderId) {
         this.goodsId = goodsId;
         this.nameGoods = nameGoods;
         this.priceOrder = priceOrder;
         this.number = number;
         this.cost = cost;
+        this.orderId = orderId;
     }
 
     @Override
@@ -73,6 +84,7 @@ public class OrderListDto {
                 ", priceOrder=" + priceOrder +
                 ", number=" + number +
                 ", cost=" + cost +
+                ", orderId=" + orderId +
                 '}';
     }
 }

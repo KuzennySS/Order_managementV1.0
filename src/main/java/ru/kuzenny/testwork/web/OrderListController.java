@@ -18,7 +18,6 @@ import ru.kuzenny.testwork.service.OrderService;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -42,13 +41,11 @@ public class OrderListController {
         return "redirect:/goods/{orderId}";
     }
 
-    /* View*/
     @GetMapping("/{numberOrder}")
-    public String look(@PathVariable int numberOrder, Model model) {
-        List<OrderListDto> orderListDtos = getOrderListDtos(numberOrder);
+    public String view(@PathVariable int numberOrder, Model model) {
         model.addAttribute("orders", orderService.getNumberOrderDto(numberOrder));
-        model.addAttribute("looks", orderListDtos);
-        return "look";
+        model.addAttribute("looks", getOrderListDtos(numberOrder));
+        return "ordersList";
     }
 
     @GetMapping("/update")
@@ -63,25 +60,22 @@ public class OrderListController {
         return "orderForm";
     }
 
-    @GetMapping("/delete/{orderId}/{goodsId}")
-    public String delete(@PathVariable int orderId, @PathVariable int goodsId, Model model) {
+    @GetMapping("/delete/{orderId}")
+    public String delete(@PathVariable int orderId, Model model) {
         var numberOrder = orderService.get(orderId).getNumberOrder();
-        var orderIdDelete = orderService.getOrderList(numberOrder, goodsId).getId();
-        orderService.delete(orderIdDelete);
+        orderService.delete(orderId);
         List<OrderListDto> orderListDtos = getOrderListDtos(numberOrder);
         model.addAttribute("orders", orderService.getNumberOrderDto(numberOrder));
         model.addAttribute("looks", orderListDtos);
         return "redirect:/look/" + numberOrder;
     }
 
-    /*adding or eding*/
     @PostMapping("/orderForm")
     public String updateOrder(HttpServletRequest request) {
         var newNumberOrder = Integer.parseInt(request.getParameter("newNumberOrder"));
         var newEmail = request.getParameter("email");
         if (request.getParameter("oldNumberOrder").isEmpty()) {
             var order = new Order();
-            order.setTime(LocalDateTime.now());
             setNewField(order, newNumberOrder, newEmail);
 
         } else {
@@ -95,22 +89,25 @@ public class OrderListController {
     private void setNewField(Order order, Integer numberOrder, String email) {
         order.setEmail(email);
         order.setNumberOrder(numberOrder);
+        order.setTime(LocalDateTime.now());
         orderService.create(order);
     }
 
-    private List<OrderListDto> getOrderListDtos(int numberOrder) {
+    public List<OrderListDto> getOrderListDtos(int numberOrder) {
         List<Integer> orderListId = orderService.getOrderListIdByNumberOrder(numberOrder);
         if (orderListId.contains(null)) return Collections.EMPTY_LIST;
         List<OrderList> orderLists = orderListId.stream()
                 .map(id -> orderListService.get(id))
                 .collect(Collectors.toList());
         List<OrderListDto> orderListDtos = new ArrayList<>();
-        orderLists.forEach(orderList -> orderListDtos.add(new OrderListDto(
+        orderLists.forEach(orderList -> orderListDtos.add(
+                new OrderListDto(
                         orderList.getGoodId(),
                         goodsService.get(orderList.getGoodId()).getName(),
                         orderList.getPriceOrder(),
                         orderList.getNumber(),
-                        orderList.getCost()
+                        orderList.getCost(),
+                        orderService.getOrderIdByOrderList(orderList.getId()).getId()
                 )
         ));
         return orderListDtos;

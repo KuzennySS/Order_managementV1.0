@@ -55,10 +55,6 @@ public class OrderDto {
         this.sum = sum;
     }
 
-    public boolean isNew() {
-        return this.orderId == null;
-    }
-
     public OrderDto() {
     }
 

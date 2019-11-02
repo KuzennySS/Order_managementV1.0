@@ -30,9 +30,6 @@ public class JpaOrderListRepository implements OrderListRepository {
     @Transactional
     public void delete(int id) {
          em.remove(get(id));
-/*        return em.createNamedQuery("OrderList.delete", OrderList.class)
-                .setParameter("id", id)
-                .executeUpdate() != 0;*/
     }
 
     @Override

@@ -4,6 +4,7 @@ import ru.kuzenny.testwork.model.Order;
 import ru.kuzenny.testwork.model.OrderList;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface OrderRepository {
 
@@ -20,5 +21,7 @@ public interface OrderRepository {
     List<Order> getAll();
 
     List<Order> getOrdersByNumberOrder(int numdeberOrder);
+
+   Order getOrderByOrderList(Integer orderListId);
 
 }

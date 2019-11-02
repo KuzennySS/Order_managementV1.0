@@ -6,7 +6,6 @@
 <body>
 <section>
     <jsp:useBean id="orderForm" type="ru.kuzenny.testwork.dto.OrderDto" scope="request"/>
-<%--    <h3><spring:message code="${orderForm.orderId.isNew() ? 'orderForm.add' : 'orderForm.create'}"/></h3>--%>
     <hr>
     <form method="post" action="orderForm">
         <input type="hidden" name="oldNumberOrder" value="${orderForm.numberOrder}">

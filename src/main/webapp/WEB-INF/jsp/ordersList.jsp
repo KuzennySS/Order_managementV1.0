@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Просмотр состава заказа</title>
-<%--    <link rel="stylesheet" href="css/style.css">--%>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <section>
@@ -49,14 +49,14 @@
                 <td>${orderListDto.priceOrder}</td>
                 <td>${orderListDto.number}</td>
                 <td>${orderListDto.cost}</td>
-                <td><a href="delete/${orders.orderId}/${orderListDto.goodsId}">Delete</a></td>
+                <td><a href="delete/${orderListDto.orderId}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
     <br><br>
     <a href="add/${orders.orderId}">Добавить товар из прайс листа</a>
     <br><br>
-    <a href="/Order_management_war_exploded/orders"> Назад</a>
+    <a href="${pageContext.request.contextPath}/"> Назад</a>
 </section>
 </body>
 </html>

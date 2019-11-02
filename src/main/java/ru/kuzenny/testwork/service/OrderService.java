@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.kuzenny.testwork.dto.OrderDto;
 import ru.kuzenny.testwork.model.Order;
+import ru.kuzenny.testwork.model.OrderList;
 import ru.kuzenny.testwork.repository.OrderRepository;
 import ru.kuzenny.testwork.util.OrderUtil;
 
@@ -51,6 +52,10 @@ public class OrderService {
     public Order create(Order order) {
 //        Assert.notNull(meal, "meal must not be null");
         return orderRepository.save(order);
+    }
+
+    public Order getOrderIdByOrderList(Integer orderListId){
+        return orderRepository.getOrderByOrderList(orderListId);
     }
 
     public List<OrderDto> getAll() {

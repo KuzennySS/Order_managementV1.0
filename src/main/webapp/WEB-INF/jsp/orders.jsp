@@ -4,31 +4,11 @@
 <html>
 <head>
     <title>Список заказов</title>
-<%--    <link rel="stylesheet" href="css/style.css">--%>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <section>
     <h2>Список заказов</h2>
-<%--    <form method="get" action="orders">--%>
-<%--        <input type="hidden" name="action" value="filter">--%>
-<%--        <dl>--%>
-<%--            <dt>From Date:</dt>--%>
-<%--            <dd><input type="date" name="startDate" value="${param.startDate}"></dd>--%>
-<%--        </dl>--%>
-<%--        <dl>--%>
-<%--            <dt>To Date:</dt>--%>
-<%--            <dd><input type="date" name="endDate" value="${param.endDate}"></dd>--%>
-<%--        </dl>--%>
-<%--        <dl>--%>
-<%--            <dt>From Time:</dt>--%>
-<%--            <dd><input type="time" name="startTime" value="${param.startTime}"></dd>--%>
-<%--        </dl>--%>
-<%--        <dl>--%>
-<%--            <dt>To Time:</dt>--%>
-<%--            <dd><input type="time" name="endTime" value="${param.endTime}"></dd>--%>
-<%--        </dl>--%>
-<%--        <button type="submit">Filter</button>--%>
-<%--    </form>--%>
     <hr/>
     <a href="${pageContext.request.contextPath}/look/create">Создать заказ</a>
     <br><br>
@@ -50,15 +30,8 @@
                 <td>${orderDto.email}</td>
                 <td>${orderDto.time}</td>
                 <td>${orderDto.sum}</td>
-<%--                <td>
-                        &lt;%&ndash;${meal.dateTime.toLocalDate()} ${meal.dateTime.toLocalTime()}&ndash;%&gt;
-                        &lt;%&ndash;<%=TimeUtil.toString(meal.getDateTime())%>&ndash;%&gt;
-                        &lt;%&ndash;${fn:replace(meal.dateTime, 'T', ' ')}&ndash;%&gt;
-                        ${fn:formatDateTime(meal.dateTime)}
-                </td>--%>
-<%--                <td><a href="meals/update?id=${meal.id}"><spring:message code="common.update"/></a></td>--%>
                 <td><a href="look/${orderDto.numberOrder}">Смотреть заказ</a></td>
-                <td><a href="orders/delete/${orderDto.numberOrder}">Delete</a></td>
+                <td><a href="delete/${orderDto.numberOrder}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

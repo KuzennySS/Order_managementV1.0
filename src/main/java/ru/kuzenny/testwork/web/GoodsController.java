@@ -32,9 +32,8 @@ public class GoodsController {
     private OrderService orderService;
 
     @GetMapping("/{orderId}")
-    public String users(Model model, @PathVariable int orderId) {
+    public String goods(Model model, @PathVariable int orderId) {
         model.addAttribute("goods", goodsService.getAll());
-        model.addAttribute("", orderId);
         return "goods";
     }
 

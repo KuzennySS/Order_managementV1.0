@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 //@SuppressWarnings("JpaQlInspection")
 @NamedQueries({
-        @NamedQuery(name = "OrderList.findAll", query = "SELECT ol FROM OrderList ol"),
+        @NamedQuery(name = "OrderList.findAll", query = "SELECT ol FROM OrderList ol ORDER BY ol.id"),
         @NamedQuery(name = "OrderList.delete", query = "DELETE FROM OrderList ol WHERE ol.id=:id")
 })
 @Entity

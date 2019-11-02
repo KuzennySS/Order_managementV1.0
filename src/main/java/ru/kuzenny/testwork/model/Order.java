@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 //@SuppressWarnings("JpaQlInspection")
 @NamedQueries({
         @NamedQuery(name = "Order.findAll", query = "SELECT o FROM Order o"),
+        @NamedQuery(name = "Order.findByOrderList", query = "SELECT o FROM Order o WHERE o.orderList.id = ?1"),
         @NamedQuery(name = "Order.findByNumderOrder", query = "SELECT o FROM Order o WHERE o.numberOrder=?1"),
 })
 @Entity

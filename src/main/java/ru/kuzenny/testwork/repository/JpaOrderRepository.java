@@ -9,6 +9,7 @@ import ru.kuzenny.testwork.model.OrderList;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional(readOnly = true)
@@ -66,6 +67,14 @@ public class JpaOrderRepository implements OrderRepository {
         return em.createQuery("SELECT o FROM Order o WHERE o.numberOrder = ?1",Order.class)
                 .setParameter(1, numdeberOrder)
                 .getResultList();
+    }
+
+    @Override
+    public Order getOrderByOrderList(Integer orderListId){
+        return em.createQuery("SELECT o FROM Order o WHERE o.orderList.id = ?1", Order.class)
+//        return em.createNamedQuery("Order.findByOrderList", Order.class)
+                .setParameter(1, orderListId)
+                .getSingleResult();
     }
 
 }

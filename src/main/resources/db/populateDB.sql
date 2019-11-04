@@ -25,4 +25,4 @@ INSERT INTO orders (number_order, email, time, order_list_id) VALUES
 (111, 'user1@yandex.ru', '2019-09-29 00:01:01', 11),
 (112, 'user2@yandex.ru', '2019-09-28 10:11:11', 8),
 (112, 'user2@yandex.ru', '2019-09-28 10:11:11', 12),
-(113, 'user3@yandex.ru', '2019-09-27 23:01:01', 9);
+(113, 'user3@yandex.ru', '2019-09-27 23:00:00', 9);

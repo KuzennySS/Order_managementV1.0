@@ -30,4 +30,9 @@ public class GoodsRestController {
         return goodsService.getAll();
     }
 
+    @GetMapping("/id/{id}")
+    public Goods getGoodsById(@PathVariable int id) {
+        return goodsService.get(id);
+    }
+
 }

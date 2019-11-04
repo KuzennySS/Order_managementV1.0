@@ -115,7 +115,7 @@ public class OrderListController {
 
     private int getNumberOrder(HttpServletRequest request) {
         String paramId = Objects.requireNonNull(request.getParameter("numberOrder"));
-        return Integer.valueOf(paramId);
+        return Integer.parseInt(paramId);
     }
 
 }

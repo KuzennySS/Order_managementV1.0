@@ -1,23 +1,16 @@
 package ru.kuzenny.testwork.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import ru.kuzenny.testwork.dto.OrderDto;
 import ru.kuzenny.testwork.model.Order;
-import ru.kuzenny.testwork.model.OrderList;
-import ru.kuzenny.testwork.service.OrderListService;
 import ru.kuzenny.testwork.service.OrderService;
 
 import java.net.URI;
@@ -44,24 +37,11 @@ public class OrderListRestController {
 
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody Order order){
-//        if (order.isNew()){
-//            orderService.create(order);
-//        }
-//        else{
-//
-//        }
         Order created = orderService.create(order);
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path(REST_ORDER_LIST_URL + "/{id}")
                 .buildAndExpand(created.getId()).toUri();
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
-
-//    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-//    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-//    public void update(@RequestBody Order order, @PathVariable int id) {
-//
-//        super.update(user, id);
-//    }
 
 }

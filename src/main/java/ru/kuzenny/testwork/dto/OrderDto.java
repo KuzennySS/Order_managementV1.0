@@ -1,18 +1,28 @@
 package ru.kuzenny.testwork.dto;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@XStreamAlias("OrderDto")
 public class OrderDto {
 
+    @XStreamAlias("orderId")
     private Integer orderId;
 
+    @XStreamAlias("numberOrder")
     private Integer numberOrder;
 
+    @XStreamAlias("Email")
     private String email;
 
+    @XStreamAlias("DateTime")
     private LocalDateTime time;
 
+    @XStreamAlias("Sum")
     private BigDecimal sum;
 
     public Integer getOrderId() {

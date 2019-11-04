@@ -35,6 +35,8 @@
             </tr>
         </c:forEach>
     </table>
+    <br><br>
+    <a href="downloadXml/${orderDto}"> Загрузить xml файл </a></td>
 </section>
 </body>
 </html>

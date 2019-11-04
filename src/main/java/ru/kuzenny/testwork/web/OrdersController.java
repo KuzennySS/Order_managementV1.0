@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import ru.kuzenny.testwork.service.OrderListService;
 import ru.kuzenny.testwork.service.OrderService;
 
+import static ru.kuzenny.testwork.xml.ConverterToXml.marshaller;
+//import static ru.kuzenny.testwork.xml.ConverterToXml.writeToXml;
+
 @Controller
 public class OrdersController {
 
@@ -26,6 +29,12 @@ public class OrdersController {
     @GetMapping("/delete/{numberOrder}")
     public String delete(@PathVariable int numberOrder) {
         orderService.deleteByNumberOrder(numberOrder);
+        return "redirect:/";
+    }
+
+    @GetMapping("/downloadXml")
+    public String downloadXml() {
+        marshaller(orderService.getAll(), "orders");
         return "redirect:/";
     }
 

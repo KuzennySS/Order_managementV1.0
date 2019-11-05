@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.kuzenny.testwork.dto.OrderListDto;
 import ru.kuzenny.testwork.model.Order;
 import ru.kuzenny.testwork.model.OrderList;
 import ru.kuzenny.testwork.service.GoodsService;
@@ -67,6 +66,5 @@ public class GoodsController {
         }
         return "redirect:/look/" + numberOrder;
     }
-
 
 }

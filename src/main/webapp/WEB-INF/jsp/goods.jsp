@@ -35,7 +35,6 @@
         <input type="hidden" name="orderId" value="${orderId}">
         <br><br>
         <button onclick="window.history.back()" type="button">Назад</button>
-<%--    <a href="/Order_management_war_exploded/look/" += "${orderId}"> Назад</a>--%>
     </form>
 </section>
 </body>

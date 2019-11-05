@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import ru.kuzenny.testwork.service.OrderListService;
 import ru.kuzenny.testwork.service.OrderService;
 
 import static ru.kuzenny.testwork.xml.ConverterToXml.marshaller;
@@ -15,9 +14,6 @@ public class OrdersController {
 
     @Autowired
     private OrderService orderService;
-
-    @Autowired
-    private OrderListService orderListService;
 
     @GetMapping("/")
     public String orders(Model model) {

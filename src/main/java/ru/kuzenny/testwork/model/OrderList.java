@@ -9,7 +9,6 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-//@SuppressWarnings("JpaQlInspection")
 @NamedQueries({
         @NamedQuery(name = "OrderList.findAll", query = "SELECT ol FROM OrderList ol ORDER BY ol.id"),
         @NamedQuery(name = "OrderList.delete", query = "DELETE FROM OrderList ol WHERE ol.id=:id")
@@ -52,32 +51,16 @@ public class OrderList extends AbstractBaseEntity {
         return goodId;
     }
 
-    public void setGoodId(Integer goodId) {
-        this.goodId = goodId;
-    }
-
     public BigDecimal getPriceOrder() {
         return priceOrder;
-    }
-
-    public void setPriceOrder(BigDecimal priceOrder) {
-        this.priceOrder = priceOrder;
     }
 
     public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
     public BigDecimal getCost() {
         return cost;
-    }
-
-    public void setCost(BigDecimal cost) {
-        this.cost = cost;
     }
 
     @Override

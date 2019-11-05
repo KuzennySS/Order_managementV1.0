@@ -27,10 +27,6 @@ public class OrderDto {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
     public Integer getNumberOrder() {
         return numberOrder;
     }
@@ -43,24 +39,12 @@ public class OrderDto {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(LocalDateTime time) {
-        this.time = time;
-    }
-
     public BigDecimal getSum() {
         return sum;
-    }
-
-    public void setSum(BigDecimal sum) {
-        this.sum = sum;
     }
 
     public OrderDto() {

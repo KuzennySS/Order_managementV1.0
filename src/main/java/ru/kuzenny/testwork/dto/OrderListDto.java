@@ -20,51 +20,20 @@ public class OrderListDto {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
-    public Integer getGoodsId() {
-        return goodsId;
-    }
-
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
-    }
-
     public String getNameGoods() {
         return nameGoods;
-    }
-
-    public void setNameGoods(String nameGoods) {
-        this.nameGoods = nameGoods;
     }
 
     public BigDecimal getPriceOrder() {
         return priceOrder;
     }
 
-    public void setPriceOrder(BigDecimal priceOrder) {
-        this.priceOrder = priceOrder;
-    }
-
     public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
     public BigDecimal getCost() {
         return cost;
-    }
-
-    public void setCost(BigDecimal cost) {
-        this.cost = cost;
-    }
-
-    public OrderListDto() {
     }
 
     public OrderListDto(Integer goodsId, String nameGoods, BigDecimal priceOrder, Integer number, BigDecimal cost, Integer orderId) {

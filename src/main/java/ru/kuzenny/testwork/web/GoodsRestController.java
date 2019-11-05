@@ -32,7 +32,6 @@ public class GoodsRestController {
 
     @GetMapping("/id/{id}")
     public Goods getGoodsById(@PathVariable int id) {
-//        return goodsService.get(id);
         return goodsService.get(id).isPresent() ? goodsService.get(id).get() : null;
     }
 

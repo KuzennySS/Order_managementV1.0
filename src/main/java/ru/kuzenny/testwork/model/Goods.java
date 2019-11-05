@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
-//@SuppressWarnings("JpaQlInspection")
 @NamedQueries(@NamedQuery(name = "Goods.findAll", query = "SELECT g FROM Goods g"))
 @Entity
 @Table(name = "goods", uniqueConstraints = {@UniqueConstraint(columnNames = {"name", "price_goods"}, name = "goods_unique_idx")})
@@ -30,16 +29,8 @@ public class Goods extends AbstractBaseEntity {
         return name;
     }
 
-    public void setName() {
-        this.name =  name;
-    }
-
     public BigDecimal getPriceGoods() {
         return priceGoods;
-    }
-
-    public void setPriceGoods(BigDecimal priceGoods) {
-        this.priceGoods = priceGoods;
     }
 
     public Goods() {}

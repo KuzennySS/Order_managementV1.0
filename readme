@@ -1,8 +1,11 @@
 Для запуска приложения необходимо создать в PostgreSQL БД "order", пользователь - "user", пароль - "password".
 необходимо настроить в проекте tomcat 9.0.191: url - "http://localhost:8080/Order_management_war_exploded/", SDK - 11, остальные
 настройки по умолчангию.
-Скрипт для инициализации и заполнения БД входит в состав проекта, вызывается Spring при запуске проекта автоматически.
-Тестирование API кроме тестов, также осуществдяется через SoapUi, Order-manadger-soapui-project.xml расположен в папке проекта config.
+В классе ConverterToXml, захардхожен путь выгрузки xml файла, переменную PATH поменять для своего ПК.
+Скрипт для инициализации и заполнения БД входит в состав проекта, вызывается Spring-ом при запуске проекта автоматически.
+Тестирование API кроме тестов, также осуществляется через SoapUi, Order-manadger-soapui-project.xml расположен в папке проекта config.
+
+
 
 команды REST API
 ____________________________________________________________________________
@@ -18,3 +21,5 @@ http://localhost:8080/Order_management_war_exploded/rest/orderList/delete/17
 http://localhost:8080/Order_management_war_exploded/rest/goods
 получить Goods по id
 http://localhost:8080/Order_management_war_exploded/rest/goods/id/1
+произвести выгрузку списка заказов в формате xml
+http://localhost:8080/Order_management_war_exploded/rest/downloadXml

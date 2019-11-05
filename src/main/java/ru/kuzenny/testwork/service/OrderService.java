@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.kuzenny.testwork.dto.OrderDto;
 import ru.kuzenny.testwork.model.Order;
-import ru.kuzenny.testwork.model.OrderList;
 import ru.kuzenny.testwork.repository.OrderRepository;
 import ru.kuzenny.testwork.util.OrderUtil;
 
@@ -35,12 +34,6 @@ public class OrderService {
         return orderRepository.getOrdersByNumberOrder(numdeberOrder);
     }
 
-    public Order getOrderList(int numdeberOrder, Integer goodsId){
-        return orderRepository.getByNumberOrder(numdeberOrder).stream()
-                .filter(order -> order.getOrderList().getGoodId().equals(goodsId))
-                .findFirst().orElse(null);
-    }
-
     public void delete(int id) {
         orderRepository.delete(id);
     }
@@ -50,7 +43,6 @@ public class OrderService {
     }
 
     public Order create(Order order) {
-//        Assert.notNull(meal, "meal must not be null");
         return orderRepository.save(order);
     }
 

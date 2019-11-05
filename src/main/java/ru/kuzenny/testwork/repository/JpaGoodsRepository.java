@@ -7,6 +7,7 @@ import ru.kuzenny.testwork.model.Goods;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional(readOnly = true)
@@ -16,8 +17,8 @@ public class JpaGoodsRepository implements GoodsRepository {
     private EntityManager em;
 
     @Override
-    public Goods get(Integer id) {
-        return em.find(Goods.class, id);
+    public Optional<Goods> get(Integer id) {
+        return Optional.ofNullable(em.find(Goods.class, id));
     }
 
     @Override

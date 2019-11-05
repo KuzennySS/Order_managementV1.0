@@ -1,5 +1,6 @@
 package ru.kuzenny.testwork.repository;
 
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.kuzenny.testwork.model.AbstractBaseEntity;

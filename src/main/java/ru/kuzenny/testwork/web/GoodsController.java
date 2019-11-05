@@ -42,25 +42,28 @@ public class GoodsController {
         var goodId = Integer.parseInt(request.getParameter("id"));
         var goods = goodsService.get(goodId);
         var numberItem = Integer.parseInt(request.getParameter("numberItem"));
-        var orderList = new OrderList(
-                goodId,
-                goods.getPriceGoods(),
-                numberItem,
-                goods.getPriceGoods().multiply(new BigDecimal(numberItem))
-        );
-        orderListService.create(orderList);
-        var orderId = Integer.parseInt(request.getParameter("orderId"));
-        var orderOld = orderService.get(orderId);
-        var numberOrder = orderOld.getNumberOrder();
-        var order = new Order(
-                numberOrder,
-                orderOld.getEmail(),
-                LocalDateTime.now(),
-                orderList
-        );
-        orderService.create(order);
-        if (orderService.get(orderId).getOrderList() == null) {
-            orderService.delete(orderId);
+        Integer numberOrder = null;
+        if (goods.isPresent()) {
+            var orderList = new OrderList(
+                    goodId,
+                    goods.get().getPriceGoods(),
+                    numberItem,
+                    goods.get().getPriceGoods().multiply(new BigDecimal(numberItem))
+            );
+            orderListService.create(orderList);
+            var orderId = Integer.parseInt(request.getParameter("orderId"));
+            var orderOld = orderService.get(orderId);
+            numberOrder = orderOld.getNumberOrder();
+            var order = new Order(
+                    numberOrder,
+                    orderOld.getEmail(),
+                    LocalDateTime.now(),
+                    orderList
+            );
+            orderService.create(order);
+            if (orderService.get(orderId).getOrderList() == null) {
+                orderService.delete(orderId);
+            }
         }
         return "redirect:/look/" + numberOrder;
     }

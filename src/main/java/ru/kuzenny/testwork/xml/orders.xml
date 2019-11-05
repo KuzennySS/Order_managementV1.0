@@ -1,21 +1,6 @@
-<orders>
+<list>
   <OrderDto>
-    <orderId>13</orderId>
-    <numberOrder>111</numberOrder>
-    <Email>user1@yandex.ru</Email>
-    <DateTime resolves-to="java.time.Ser">
-      <byte>5</byte>
-      <int>2019</int>
-      <byte>9</byte>
-      <byte>29</byte>
-      <byte>0</byte>
-      <byte>1</byte>
-      <byte>-2</byte>
-    </DateTime>
-    <Sum>201773.42</Sum>
-  </OrderDto>
-  <OrderDto>
-    <orderId>17</orderId>
+    <orderId>16</orderId>
     <numberOrder>112</numberOrder>
     <Email>user2@yandex.ru</Email>
     <DateTime resolves-to="java.time.Ser">
@@ -27,7 +12,7 @@
       <byte>11</byte>
       <byte>-12</byte>
     </DateTime>
-    <Sum>160227.00</Sum>
+    <Sum>240227.94</Sum>
   </OrderDto>
   <OrderDto>
     <orderId>18</orderId>
@@ -42,4 +27,4 @@
     </DateTime>
     <Sum>122.02</Sum>
   </OrderDto>
-</orders>
+</list>

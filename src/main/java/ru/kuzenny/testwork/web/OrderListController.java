@@ -93,7 +93,7 @@ public class OrderListController {
         orderService.create(order);
     }
 
-    public List<OrderListDto> getOrderListDtos(int numberOrder) {
+    private List<OrderListDto> getOrderListDtos(int numberOrder) {
         List<Integer> orderListId = orderService.getOrderListIdByNumberOrder(numberOrder);
         if (orderListId.contains(null)) return Collections.EMPTY_LIST;
         List<OrderList> orderLists = orderListId.stream()
@@ -103,7 +103,7 @@ public class OrderListController {
         orderLists.forEach(orderList -> orderListDtos.add(
                 new OrderListDto(
                         orderList.getGoodId(),
-                        goodsService.get(orderList.getGoodId()).getName(),
+                        goodsService.get(orderList.getGoodId()).get().getName(),
                         orderList.getPriceOrder(),
                         orderList.getNumber(),
                         orderList.getCost(),

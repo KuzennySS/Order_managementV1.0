@@ -9,7 +9,6 @@ import ru.kuzenny.testwork.service.OrderListService;
 import ru.kuzenny.testwork.service.OrderService;
 
 import static ru.kuzenny.testwork.xml.ConverterToXml.marshaller;
-//import static ru.kuzenny.testwork.xml.ConverterToXml.writeToXml;
 
 @Controller
 public class OrdersController {
@@ -34,7 +33,7 @@ public class OrdersController {
 
     @GetMapping("/downloadXml")
     public String downloadXml() {
-        marshaller(orderService.getAll(), "orders");
+        marshaller(orderService.getAll());
         return "redirect:/";
     }
 

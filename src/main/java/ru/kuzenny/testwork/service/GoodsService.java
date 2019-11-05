@@ -6,6 +6,7 @@ import ru.kuzenny.testwork.model.Goods;
 import ru.kuzenny.testwork.repository.GoodsRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GoodsService {
@@ -17,7 +18,7 @@ public class GoodsService {
         this.repository = repository;
     }
 
-    public Goods get(int id) { return repository.get(id); }
+    public Optional<Goods> get(int id) { return repository.get(id); }
 
     public List<Goods> getAll() { return repository.getAll(); }
 }

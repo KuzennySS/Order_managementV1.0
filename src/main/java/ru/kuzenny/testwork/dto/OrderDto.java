@@ -2,8 +2,6 @@ package ru.kuzenny.testwork.dto;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 

@@ -13,11 +13,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 import java.time.LocalDateTime;
 
-//@SuppressWarnings("JpaQlInspection")
 @NamedQueries({
         @NamedQuery(name = "Order.findAll", query = "SELECT o FROM Order o"),
         @NamedQuery(name = "Order.findByOrderList", query = "SELECT o FROM Order o WHERE o.orderList.id = ?1"),

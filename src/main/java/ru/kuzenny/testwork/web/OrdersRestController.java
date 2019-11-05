@@ -11,8 +11,6 @@ import ru.kuzenny.testwork.service.OrderService;
 
 import java.util.List;
 
-import static ru.kuzenny.testwork.xml.ConverterToXml.marshaller;
-
 @RestController
 @RequestMapping(value = OrdersRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class OrdersRestController {
@@ -32,8 +30,8 @@ public class OrdersRestController {
         orderService.deleteByNumberOrder(numberOrder);
     }
 
-    @GetMapping("/downloadXml")
-    public void downloadXml() {
-        marshaller(orderService.getAll(), "orders");
+    @GetMapping(value = "/downloadXml", produces = MediaType.TEXT_XML_VALUE)
+    public List<OrderDto> downloadXml() {
+        return orderService.getAll();
     }
 }

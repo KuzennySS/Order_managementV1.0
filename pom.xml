@@ -53,7 +53,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <!--https://junit.org/junit5/docs/current/user-guide/#running-tests-build-maven -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.1</version>
@@ -62,8 +61,6 @@
                 </configuration>
             </plugin>
 
-            <!--  http://stackoverflow.com/questions/4305935/is-it-possible-to-supply-tomcat6s-context-xml-file-via-the-maven-cargo-plugin#4417945 -->
-            <!-- https://codehaus-cargo.github.io/cargo/Tomcat+9.x.html -->
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>
@@ -244,6 +241,14 @@
             <artifactId>xstream</artifactId>
             <version>1.4.3</version>
         </dependency>
+
+        // for return xml from rest
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.9.10</version>
+        </dependency>
+
 
     </dependencies>
 
